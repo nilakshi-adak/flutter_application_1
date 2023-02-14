@@ -32,8 +32,137 @@ class MyHomePage extends StatefulWidget {
 }
 
 var tamluk;
+bool toggledTemp = false;
 
 class _MyHomePageState extends State<MyHomePage> {
+  Widget _card(Widget child) {
+    return Card(
+      elevation: 3,
+      child: Container(
+        decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(20))),
+        height: 110,
+        width: MediaQuery.of(context).size.width * 0.44,
+        child: child,
+      ),
+    );
+  }
+
+  Widget _cardRow1() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        _card(_cardSkeleton(
+            'UV Index',
+            tamluk == null
+                ? 'loading...'
+                : '${(tamluk as CurrentLocation).current?.uv.toString()}',
+            'uv.png')),
+        _card(_cardSkeleton(
+            'Humidity',
+            tamluk == null
+                ? 'loading...'
+                : '${(tamluk as CurrentLocation).current?.humidity.toString()}',
+            'humidity.png',
+            extraInfo: '%')),
+      ],
+    );
+  }
+
+  Widget _cardRow2() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        _card(_cardSkeleton(
+            'Wind',
+            tamluk == null
+                ? 'loading...'
+                : '${(tamluk as CurrentLocation).current?.windKph.toString()}',
+            'wind.png',
+            extraInfo: 'kmph')),
+        _card(
+          _cardSkeleton(
+              'Visibility',
+              tamluk == null
+                  ? 'loading...'
+                  : '${(tamluk as CurrentLocation).current?.visKm.toString()}',
+              'visibility.png',
+              extraInfo: 'km'),
+        ),
+      ],
+    );
+  }
+
+  Widget _cardSkeleton(String badgeString, String info, String imagePath,
+      {String? extraInfo}) {
+    return Row(
+      children: [
+        Expanded(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 237, 233, 233),
+                        borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(8),
+                            topLeft: Radius.circular(4))),
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(badgeString),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: Row(
+                        children: [
+                          Text(
+                            info,
+                            style: const TextStyle(
+                                fontSize: 40.0,
+                                color: Colors.grey,
+                                fontFamily: 'Poppins'),
+                          ),
+                          if (extraInfo != null)
+                            Padding(
+                              padding: const EdgeInsets.only(top: 16.0),
+                              child: Text(
+                                extraInfo,
+                                style: const TextStyle(
+                                    fontSize: 10.0,
+                                    color: Colors.grey,
+                                    fontFamily: 'Poppins'),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+        Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: SizedBox(
+                  height: 30,
+                  width: 30,
+                  child: WeatherImage.resolveImage(imagePath)),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
   @override
   void initState() {
     super.initState();
@@ -62,17 +191,26 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       ListTile(
-                        trailing: WeatherImage.getData(
-                            (tamluk as CurrentLocation)
+                        trailing: tamluk == null
+                            ? null
+                            : WeatherImage.getData((tamluk as CurrentLocation)
                                 .current
                                 ?.condition
                                 ?.code
                                 .toString()),
-                        title: Text(
-                          tamluk == null
-                              ? 'loading...'
-                              : '${(tamluk as CurrentLocation).current?.tempC.toString()}°C',
-                          style: const TextStyle(fontSize: 32.0),
+                        title: GestureDetector(
+                          onTap: () {
+                            toggledTemp = toggledTemp == true ? false : true;
+                            setState(() {});
+                          },
+                          child: Text(
+                            tamluk == null
+                                ? 'loading...'
+                                : toggledTemp
+                                    ? '${(tamluk as CurrentLocation).current?.tempF.toString()}°F'
+                                    : '${(tamluk as CurrentLocation).current?.tempC.toString()}°C',
+                            style: const TextStyle(fontSize: 32.0),
+                          ),
                         ),
                         subtitle: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -101,7 +239,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-              )
+              ),
+              _cardRow1(),
+              _cardRow2(),
             ],
           ),
         ),

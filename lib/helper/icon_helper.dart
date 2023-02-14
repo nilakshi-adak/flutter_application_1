@@ -7,111 +7,111 @@ class WeatherImage {
     switch (code) {
       case '1000':
         //clear to be add
-        return _image(Constant.cloudSun);
+        return resolveImage(Constant.cloudSun);
       case '1003':
-        return _image(Constant.partlyCloudy);
+        return resolveImage(Constant.partlyCloudy);
       case '1006':
-        return _image(Constant.cloudy);
+        return resolveImage(Constant.cloudy);
       case '1009':
-        return _image(Constant.overcast);
+        return resolveImage(Constant.overcast);
       case '1030':
-        return _image(Constant.mist);
+        return resolveImage(Constant.mist);
       case '1063':
-        return _image(Constant.patchyRain);
+        return resolveImage(Constant.patchyRain);
       case '1066':
-        return _image(Constant.patchySnow);
+        return resolveImage(Constant.patchySnow);
       case '1069':
-        return _image(Constant.patchySleet);
+        return resolveImage(Constant.patchySleet);
       case '1072':
-        return _image(Constant.patchyfreezing);
+        return resolveImage(Constant.patchyfreezing);
       case '1087':
-        return _image(Constant.thunderOutbreaks);
+        return resolveImage(Constant.thunderOutbreaks);
       case '1114':
-        return _image(Constant.blowingSnow);
+        return resolveImage(Constant.blowingSnow);
       case '1117':
-        return _image(Constant.blizzard);
+        return resolveImage(Constant.blizzard);
       case '1135':
-        return _image(Constant.fog);
+        return resolveImage(Constant.fog);
       case '1147':
-        return _image(Constant.freezingFog);
+        return resolveImage(Constant.freezingFog);
       case '1150':
-        return _image(Constant.patchyLightDrizzle);
+        return resolveImage(Constant.patchyLightDrizzle);
       case '1153':
-        return _image(Constant.lightDrizzle);
+        return resolveImage(Constant.lightDrizzle);
       case '1168':
-        return _image(Constant.freezingDrizzle);
+        return resolveImage(Constant.freezingDrizzle);
       case '1171':
-        return _image(Constant.heavyFreezingDrizzle);
+        return resolveImage(Constant.heavyFreezingDrizzle);
       case '1180':
-        return _image(Constant.patchyLightRain);
+        return resolveImage(Constant.patchyLightRain);
       case '1183':
-        return _image(Constant.lightRain);
+        return resolveImage(Constant.lightRain);
       case '1186':
-        return _image(Constant.moderateRainTimes);
+        return resolveImage(Constant.moderateRainTimes);
       case '1189':
-        return _image(Constant.moderateRain);
+        return resolveImage(Constant.moderateRain);
       case '1192':
-        return _image(Constant.heavyRainTime);
+        return resolveImage(Constant.heavyRainTime);
       case '1195':
-        return _image(Constant.heavyRain);
+        return resolveImage(Constant.heavyRain);
       case '1198':
-        return _image(Constant.lightFreezingRain);
+        return resolveImage(Constant.lightFreezingRain);
       case '1201':
-        return _image(Constant.moderateOrHeavyFreezingRain);
+        return resolveImage(Constant.moderateOrHeavyFreezingRain);
       case '1204':
-        return _image(Constant.lightSleet);
+        return resolveImage(Constant.lightSleet);
       case '1207':
-        return _image(Constant.moderateOrHeavySleet);
+        return resolveImage(Constant.moderateOrHeavySleet);
       case '1210':
-        return _image(Constant.patchyLightSnow);
+        return resolveImage(Constant.patchyLightSnow);
       case '1213':
-        return _image(Constant.lightSnow);
+        return resolveImage(Constant.lightSnow);
       case '1216':
-        return _image(Constant.patchyModerateSnow);
+        return resolveImage(Constant.patchyModerateSnow);
       case '1219':
-        return _image(Constant.moderateSnow);
+        return resolveImage(Constant.moderateSnow);
       case '1222':
-        return _image(Constant.patchyHeavySnow);
+        return resolveImage(Constant.patchyHeavySnow);
       case '1225':
-        return _image(Constant.heavySnow);
+        return resolveImage(Constant.heavySnow);
       case '1237':
-        return _image(Constant.icePellets);
+        return resolveImage(Constant.icePellets);
       case '1240':
-        return _image(Constant.lightRainShower);
+        return resolveImage(Constant.lightRainShower);
       case '1243':
-        return _image(Constant.moderateOrHeavyRainShower);
+        return resolveImage(Constant.moderateOrHeavyRainShower);
       case '1246':
-        return _image(Constant.torrentialRainShower);
+        return resolveImage(Constant.torrentialRainShower);
       case '1249':
-        return _image(Constant.lightSleetShowers);
+        return resolveImage(Constant.lightSleetShowers);
       case '1252':
-        return _image(Constant.moderateOrHeavySleetShowers);
+        return resolveImage(Constant.moderateOrHeavySleetShowers);
       case '1255':
-        return _image(Constant.lightSnowShowers);
+        return resolveImage(Constant.lightSnowShowers);
       case '1258':
-        return _image(Constant.moderateOrHeavySnowShowers);
+        return resolveImage(Constant.moderateOrHeavySnowShowers);
       case '1261':
-        return _image(Constant.lightShowersOfIcePellets);
+        return resolveImage(Constant.lightShowersOfIcePellets);
       case '1264':
-        return _image(Constant.moderateOrHeavyShowersOfIcePellets);
+        return resolveImage(Constant.moderateOrHeavyShowersOfIcePellets);
       case '1273':
-        return _image(Constant.patchyLightRainWithThunder);
+        return resolveImage(Constant.patchyLightRainWithThunder);
       case '1276':
-        return _image(Constant.moderateOrHeavyRainWithThunder);
+        return resolveImage(Constant.moderateOrHeavyRainWithThunder);
       case '1279':
-        return _image(Constant.patchyLightSnowWithThunder);
+        return resolveImage(Constant.patchyLightSnowWithThunder);
       case '1282':
-        return _image(Constant.moderateOrHeavySnowWithThunder);
+        return resolveImage(Constant.moderateOrHeavySnowWithThunder);
       default:
-        return _image(Constant.sunny);
+        return resolveImage(Constant.sunny);
     }
   }
 
-  static Image _image(String fileName) {
+  static Image resolveImage(String fileName, {BoxFit? boxFit, double? height}) {
     return Image.asset(
       'assets/images/$fileName',
-      height: 60.0,
-      fit: BoxFit.cover,
+      height: height,
+      fit: boxFit,
     );
   }
 }
