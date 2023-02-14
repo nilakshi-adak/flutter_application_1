@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/helper/icon_helper.dart';
 import 'package:flutter_application_1/model/current.dart';
 
 import 'service/current_location_service.dart';
@@ -61,11 +62,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       ListTile(
-                        trailing: Image.asset(
-                          'assets/images/cloud_sun.png',
-                          height: 60.0,
-                          fit: BoxFit.cover,
-                        ),
+                        trailing: WeatherImage.getData(
+                            (tamluk as CurrentLocation)
+                                .current
+                                ?.condition
+                                ?.code
+                                .toString()),
                         title: Text(
                           tamluk == null
                               ? 'loading...'
