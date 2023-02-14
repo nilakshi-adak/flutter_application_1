@@ -4,7 +4,8 @@ import 'package:flutter_application_1/constant/constant.dart';
 //get image icon based in response code of weather
 class WeatherImage {
   static Image getData(String? code) {
-    switch (code) {
+    // TODO: Update switch case once images are ready
+    switch ('1000') {
       case '1000':
         //clear to be add
         return resolveImage(Constant.cloudSun);
